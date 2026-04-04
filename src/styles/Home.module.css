@@ -1,0 +1,417 @@
+.hero {
+  height: 84vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.92);
+  padding: 0;
+  --hero-video-rotate: 270deg;
+}
+
+.heroVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vmax;
+  height: 100vmax;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%) rotate(var(--hero-video-rotate, 0deg))
+    scale(var(--hero-video-scale, 1));
+  transform-origin: center;
+  z-index: -2;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(
+      900px 520px at 22% 18%,
+      rgba(61, 160, 255, 0.18),
+      transparent 60%
+    ),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.78));
+  z-index: -1;
+}
+
+.heroContent {
+  max-width: 800px;
+  padding: 2rem 1.25rem;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 650;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 16px 44px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  animation: fadeInRight 700ms ease-out forwards;
+}
+
+.heroDescription {
+  max-width: 60ch;
+  margin: 0.85rem auto 2.1rem;
+  font-size: clamp(1.05rem, 2vw, 1.32rem);
+  font-weight: 320;
+  color: rgba(255, 255, 255, 0.74);
+  line-height: 1.65;
+  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  animation: fadeInRight 700ms ease-out 140ms forwards;
+}
+
+.hero :global(.btn) {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.92);
+  padding: 13px 32px;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0;
+  animation: fadeInRight 700ms ease-out 280ms forwards;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.hero :global(.btn):hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.96);
+  transform: translateY(-2px);
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero h1,
+  .hero :global(.btn) {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+.highlights {
+  position: relative;
+  padding: 3.25rem 0 3.5rem;
+}
+
+.highlights::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.highlightsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.highlightCard {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background:
+    radial-gradient(
+      900px 320px at 20% 0%,
+      rgba(61, 160, 255, 0.16),
+      transparent 62%
+    ),
+    radial-gradient(
+      900px 320px at 80% 0%,
+      rgba(208, 180, 110, 0.12),
+      transparent 62%
+    ),
+    rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  padding: 1.4rem 1.4rem 1.55rem;
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.highlightCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(0, 0, 0, 0.18)
+  );
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.highlightCard:hover {
+  transform: translateY(-3px);
+  background:
+    radial-gradient(
+      900px 320px at 20% 0%,
+      rgba(61, 160, 255, 0.22),
+      transparent 62%
+    ),
+    radial-gradient(
+      900px 320px at 80% 0%,
+      rgba(208, 180, 110, 0.16),
+      transparent 62%
+    ),
+    rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.55);
+}
+
+.highlightIcon {
+  position: relative;
+  z-index: 1;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.92);
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(61, 160, 255, 0.36),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(208, 180, 110, 0.18),
+      transparent 55%
+    ),
+    rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  margin-bottom: 0.9rem;
+}
+
+.highlightCard h3 {
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.highlightCard p {
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.heritage {
+  position: relative;
+  padding: 3.75rem 0 4rem;
+}
+
+.heritageGrid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.heritageIntro {
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(
+      1100px 520px at 20% 0%,
+      rgba(61, 160, 255, 0.16),
+      transparent 62%
+    ),
+    radial-gradient(
+      1100px 520px at 88% 0%,
+      rgba(208, 180, 110, 0.12),
+      transparent 62%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0 24px 66px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  height: 100%;
+}
+
+.heritageFeature {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: 100%;
+}
+
+.heritageImage {
+  height: 100%;
+}
+
+.heritageImage img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  opacity: 0.92;
+  transform: scale(1.05);
+  transform-origin: center;
+  will-change: transform;
+  transition:
+    transform 700ms ease,
+    opacity 220ms ease;
+}
+
+.heritageIntro:hover .heritageImage img {
+  animation-play-state: paused;
+  transform: scale(1.16);
+  opacity: 0.98;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .heritageImage img {
+    animation: heritageKenburns 12s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes heritageKenburns {
+  from {
+    transform: scale(1.05) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.14) translate3d(-4%, -4%, 0);
+  }
+}
+
+.heritageCopy {
+  padding: 1.25rem 1.35rem 1.35rem;
+}
+
+.heritageCopy p {
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.76);
+  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+}
+
+.heritageCards {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.heritageCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(
+      900px 380px at 10% 0%,
+      rgba(61, 160, 255, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 380px at 90% 0%,
+      rgba(208, 180, 110, 0.1),
+      transparent 60%
+    ),
+    rgba(255, 255, 255, 0.05);
+  padding: 1.35rem 1.35rem 1.45rem;
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+}
+
+.heritageCard h3 {
+  margin-bottom: 0.9rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.heritageCard p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.74);
+  line-height: 1.8;
+}
+
+.legacyList {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.legacyList li {
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.74);
+  border-left: 2px solid rgba(255, 255, 255, 0.14);
+  padding-left: 1rem;
+  transition: all 0.3s ease;
+}
+
+.legacyList li:hover {
+  border-left-color: rgba(61, 160, 255, 0.8);
+  color: #fff;
+  padding-left: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .highlightsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heritageGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heritageImage img {
+    min-height: 220px;
+  }
+}

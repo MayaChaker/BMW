@@ -1,0 +1,51 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { BMW_CARS } from "../data/bmwCars";
+import "../styles/car.css";
+
+const BestSellingModels = () => {
+  const cars = BMW_CARS.filter(
+    (car) => car.collection === "best-selling-models",
+  );
+
+  return (
+    <main className="container cars-page">
+      <header className="cars-header">
+        <h1 className="section-title">Best-Selling Models</h1>
+        <p className="cars-subtitle">
+          The most popular BMW choices—balanced performance, comfort, and value.
+        </p>
+      </header>
+
+      <section>
+        <div className="car-grid">
+          {cars.map((car) => (
+            <Link
+              key={car.id}
+              to={`/cars/${car.id}`}
+              className="car-card car-card-link"
+            >
+              <div className="car-image">
+                <img src={car.imageSrc} alt={car.imageAlt} />
+              </div>
+              <div className="car-content">
+                <div className="car-meta">
+                  <span className="car-type">{car.type}</span>
+                </div>
+                <h2>{car.name}</h2>
+                <h3 className="price">{car.price}</h3>
+                <ul className="features-list">
+                  {car.features.map((feature) => (
+                    <li key={feature}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+};
+
+export default BestSellingModels;
