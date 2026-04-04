@@ -245,6 +245,7 @@ img {
   top: calc(100% + 12px);
   left: 50%;
   transform: translateX(-50%);
+  z-index: 10;
   width: max-content;
   min-width: 240px;
   padding: 0.6rem;

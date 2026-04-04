@@ -12,7 +12,8 @@ const Navbar = () => {
   const location = useLocation();
   const pathname = location.pathname;
 
-  const isCarsRouteActive = pathname === "/cars" || pathname.startsWith("/cars/");
+  const isCarsRouteActive =
+    pathname === "/cars" || pathname.startsWith("/cars/");
 
   const navListClassName = `nav-list ${isMenuOpen ? "active" : ""}`;
   const menuToggleAriaLabel = isMenuOpen ? "Close menu" : "Open menu";
@@ -37,10 +38,9 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    if (!isMenuOpen && !isCarsDropdownOpen) return;
     const timer = window.setTimeout(() => closeMenus(), 0);
     return () => window.clearTimeout(timer);
-  }, [closeMenus, isCarsDropdownOpen, isMenuOpen, pathname]);
+  }, [closeMenus, pathname]);
 
   useEffect(() => {
     if (!isCarsDropdownOpen) return;
