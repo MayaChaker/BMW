@@ -28,9 +28,9 @@ const LuxuryCollection = () => {
                 <img
                   src={car.imageSrc}
                   alt={car.imageAlt}
-                  loading={index < 3 ? "eager" : "lazy"}
+                  loading="eager"
                   decoding="async"
-                  fetchPriority={index < 3 ? "high" : "low"}
+                  fetchPriority={index < 6 ? "high" : "auto"}
                 />
               </div>
               <div className="car-content">

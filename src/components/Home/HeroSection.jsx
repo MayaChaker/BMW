@@ -14,7 +14,7 @@ const HeroSection = ({ styles }) => {
         muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
         poster="/assets/media/videoframe_9882.png"
         aria-hidden="true"
       >
