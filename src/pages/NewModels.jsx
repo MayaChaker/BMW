@@ -17,14 +17,20 @@ const NewModels = () => {
 
       <section>
         <div className="car-grid">
-          {cars.map((car) => (
+          {cars.map((car, index) => (
             <Link
               key={car.id}
               to={`/cars/${car.id}`}
               className="car-card car-card-link"
             >
               <div className="car-image">
-                <img src={car.imageSrc} alt={car.imageAlt} />
+                <img
+                  src={car.imageSrc}
+                  alt={car.imageAlt}
+                  loading={index < 3 ? "eager" : "lazy"}
+                  decoding="async"
+                  fetchPriority={index < 3 ? "high" : "low"}
+                />
               </div>
               <div className="car-content">
                 <div className="car-meta">

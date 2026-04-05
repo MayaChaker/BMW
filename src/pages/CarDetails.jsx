@@ -38,7 +38,13 @@ const CarDetails = () => {
 
       <section className="car-details">
         <div className="car-details-media">
-          <img src={car.imageSrc} alt={car.imageAlt} />
+          <img
+            src={car.imageSrc}
+            alt={car.imageAlt}
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
         </div>
         <div className="car-details-content">
           <div className="car-meta">
