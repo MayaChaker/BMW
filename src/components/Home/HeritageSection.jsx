@@ -1,5 +1,6 @@
 import React from "react";
 import HeritageCard from "./HeritageCard";
+import { toWebpSrc } from "../../utils/car.utils";
 
 const HeritageSection = ({ styles }) => {
   return (
@@ -16,12 +17,18 @@ const HeritageSection = ({ styles }) => {
         <div className={styles.heritageIntro}>
           <div className={styles.heritageFeature}>
             <div className={styles.heritageImage}>
-              <img
-                src="/assets/media/background.jpg"
-                alt="BMW M vehicle in motion"
-                loading="lazy"
-                decoding="async"
-              />
+              <picture>
+                <source
+                  srcSet={toWebpSrc("/assets/media/background.jpg")}
+                  type="image/webp"
+                />
+                <img
+                  src="/assets/media/background.jpg"
+                  alt="BMW M vehicle in motion"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
             </div>
             <div className={styles.heritageCopy}>
               <p>

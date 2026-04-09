@@ -21,3 +21,9 @@ export const buildModelOptions = (cars) => {
   });
 };
 
+export const toWebpSrc = (src) => {
+  if (!src) return src;
+  const normalized = String(src);
+  if (/\.(webp|avif)$/i.test(normalized)) return normalized;
+  return normalized.replace(/\.(png|jpe?g)$/i, ".webp");
+};

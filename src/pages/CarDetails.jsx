@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { BMW_CARS } from "../data/bmwCars";
+import { toWebpSrc } from "../utils/car.utils";
 import "../styles/car.css";
 
 const CarDetails = () => {
@@ -38,13 +39,18 @@ const CarDetails = () => {
 
       <section className="car-details">
         <div className="car-details-media">
-          <img
-            src={car.imageSrc}
-            alt={car.imageAlt}
-            loading="eager"
-            decoding="async"
-            fetchPriority="high"
-          />
+          <picture>
+            {toWebpSrc(car.imageSrc) !== car.imageSrc ? (
+              <source srcSet={toWebpSrc(car.imageSrc)} type="image/webp" />
+            ) : null}
+            <img
+              src={car.imageSrc}
+              alt={car.imageAlt}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
+            />
+          </picture>
         </div>
         <div className="car-details-content">
           <div className="car-meta">

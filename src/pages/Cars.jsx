@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { BMW_CARS, BMW_CAR_TYPES } from "../data/bmwCars";
+import { toWebpSrc } from "../utils/car.utils";
 import "../styles/car.css";
 
 const Cars = () => {
@@ -53,13 +54,18 @@ const Cars = () => {
             className="car-card car-card-link"
           >
             <div className="car-image">
-              <img
-                src={car.imageSrc}
-                alt={car.imageAlt}
-                loading="eager"
-                decoding="async"
-                fetchPriority={index < 6 ? "high" : "auto"}
-              />
+              <picture>
+                {toWebpSrc(car.imageSrc) !== car.imageSrc ? (
+                  <source srcSet={toWebpSrc(car.imageSrc)} type="image/webp" />
+                ) : null}
+                <img
+                  src={car.imageSrc}
+                  alt={car.imageAlt}
+                  loading={index < 3 ? "eager" : "lazy"}
+                  decoding="async"
+                  fetchPriority={index < 2 ? "high" : "auto"}
+                />
+              </picture>
             </div>
             <div className="car-content">
               <div className="car-meta">

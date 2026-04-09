@@ -90,6 +90,41 @@
     color 180ms ease;
 }
 
+.heroPlayButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.9rem;
+  padding: 13px 26px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(0, 0, 0, 0.35);
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeInRight 700ms ease-out 240ms forwards;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.heroPlayButton:hover {
+  transform: translateY(-2px);
+  background: rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.98);
+}
+
+.heroPlayButton:focus-visible {
+  outline: 3px solid rgba(61, 160, 255, 0.35);
+  outline-offset: 2px;
+}
+
 .hero :global(.btn):hover {
   background: rgba(255, 255, 255, 0.14);
   border-color: rgba(255, 255, 255, 0.3);
