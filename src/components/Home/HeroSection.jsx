@@ -1,41 +1,12 @@
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const HeroSection = ({ styles }) => {
-  const videoRef = useRef(null);
-  const [isVideoEnabled, setIsVideoEnabled] = useState(false);
-
-  const posterSrc = useMemo(() => {
-    return (
-      import.meta.env.VITE_HERO_POSTER_URL ??
-      "/assets/media/videoframe_9882.webp"
-    );
-  }, []);
-
-  const videoSrc = useMemo(() => {
-    return import.meta.env.VITE_HERO_VIDEO_URL ?? "/assets/media/hero.mp4";
-  }, []);
-
-  const handleEnableVideo = useCallback(() => {
-    setIsVideoEnabled(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isVideoEnabled) return;
-    if (!videoRef.current) return;
-
-    const timer = window.setTimeout(() => {
-      videoRef.current?.play()?.catch(() => {});
-    }, 0);
-
-    return () => window.clearTimeout(timer);
-  }, [isVideoEnabled]);
+  const posterSrc =
+    import.meta.env.VITE_HERO_POSTER_URL ??
+    "/assets/media/videoframe_9882.webp";
+  const videoSrc =
+    import.meta.env.VITE_HERO_VIDEO_URL ?? "/assets/media/hero.mp4";
 
   return (
     <section
@@ -44,17 +15,16 @@ const HeroSection = ({ styles }) => {
       aria-labelledby="home-hero-title"
     >
       <video
-        ref={videoRef}
         className={styles.heroVideo}
-        autoPlay={isVideoEnabled}
+        autoPlay
         muted
         loop
         playsInline
-        preload="none"
+        preload="auto"
         poster={posterSrc}
         aria-hidden="true"
       >
-        {isVideoEnabled ? <source src={videoSrc} type="video/mp4" /> : null}
+        <source src={videoSrc} type="video/mp4" />
       </video>
       <div className={styles.heroOverlay}></div>
       <div className={styles.heroContent}>
@@ -63,15 +33,6 @@ const HeroSection = ({ styles }) => {
           Explore curated models, compare highlights, and contact our concierge
           in seconds.
         </p>
-        {!isVideoEnabled ? (
-          <button
-            type="button"
-            className={styles.heroPlayButton}
-            onClick={handleEnableVideo}
-          >
-            Play Video
-          </button>
-        ) : null}
         <Link to="/cars" className="btn">
           Discover Models
         </Link>
