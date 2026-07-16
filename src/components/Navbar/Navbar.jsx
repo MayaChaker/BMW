@@ -58,7 +58,7 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <div className="logo">
-        <img src="/assets/brand/logo.jpg" alt="BMW Logo" />
+        <img src="/assets/brand/logo.webp" alt="Luxury Drive Studio" />
         <NavLink
           to="/"
           end
@@ -66,7 +66,10 @@ const Navbar = () => {
           onClick={closeMenus}
           aria-label="Go to home"
         >
-          <span>Luxury Drive Studio</span>
+          <span className="logo-copy">
+            <strong>Luxury Drive</strong>
+            <small>Automotive studio</small>
+          </span>
         </NavLink>
       </div>
       <nav>
@@ -85,7 +88,7 @@ const Navbar = () => {
               className={getNavLinkClassName}
               onClick={closeMenus}
             >
-              CONTACT US
+              Private concierge
             </NavLink>
           </li>
         </ul>

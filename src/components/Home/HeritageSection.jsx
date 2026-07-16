@@ -1,93 +1,52 @@
 import React from "react";
-import HeritageCard from "./HeritageCard";
-import { toWebpSrc } from "../../utils/car.utils";
+
+const milestones = [
+  { year: "1916", label: "A culture of precision begins in Munich." },
+  { year: "1936", label: "The BMW 328 defines sporting elegance." },
+  { year: "1972", label: "BMW M turns competition into road-going emotion." },
+  { year: "Today", label: "Electric performance opens the next chapter." },
+];
 
 const HeritageSection = ({ styles }) => {
   return (
     <section
-      className={`${styles.heritage} container`}
+      className={styles.heritage}
       role="region"
       aria-labelledby="home-heritage-title"
     >
-      <h2 id="home-heritage-title" className="section-title">
-        Our Heritage
-      </h2>
+      <div className={`${styles.heritageHeader} container`}>
+        <div>
+          <p className={styles.sectionEyebrow}>A century in motion</p>
+          <h2 id="home-heritage-title">Legacy, without looking back.</h2>
+        </div>
+        <div className={styles.heritageIntroCopy}>
+          <span>1916—Today</span>
+          <p>Since 1916, BMW has transformed engineering discipline into a deeply human driving experience. Every generation moves the idea forward.</p>
+        </div>
+      </div>
 
-      <div className={styles.heritageGrid}>
-        <div className={styles.heritageIntro}>
-          <div className={styles.heritageFeature}>
-            <div className={styles.heritageImage}>
-              <picture>
-                <source
-                  srcSet={toWebpSrc("/assets/media/background.jpg")}
-                  type="image/webp"
-                />
-                <img
-                  src="/assets/media/background.jpg"
-                  alt="BMW M vehicle in motion"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </picture>
-            </div>
-            <div className={styles.heritageCopy}>
-              <p>
-                BMW has built premium cars and motorcycles since 1916. From
-                Munich, its engineers blend performance, innovation, and design
-                to shape modern mobility.
-              </p>
-            </div>
+      <div className={`${styles.heritageShowcase} container`}>
+        <div className={styles.heritageVisual}>
+          <img
+            src="/assets/showcase/x5-premium.webp"
+            alt="Luxury performance SUV framed by modern alpine architecture"
+            loading="lazy"
+            decoding="async"
+          />
+          <div className={styles.heritageCaption}>
+            <span>Munich · Germany</span>
+            <strong>Precision becomes emotion.</strong>
           </div>
         </div>
 
-        <div
-          className={styles.heritageCards}
-          role="list"
-          aria-label="Heritage highlights"
-        >
-          <HeritageCard styles={styles} title="Founders">
-            <p>
-              Founded in 1916 by Karl Rapp, Gustav Otto, and Franz Josef Popp.
-              It started with aircraft engines and a focus on precision.
-            </p>
-          </HeritageCard>
-
-          <HeritageCard styles={styles} title="Key Figures">
-            <ul className={styles.legacyList}>
-              <li>
-                <strong>Max Friz:</strong> Built early aircraft engines and
-                shaped the boxer motorcycle legacy.
-              </li>
-              <li>
-                <strong>Eberhard von Kuenheim:</strong> Led global expansion and
-                modernization (1970–1993).
-              </li>
-              <li>
-                <strong>Paul Rosche:</strong> Key mind behind high-performance M
-                powertrains.
-              </li>
-            </ul>
-          </HeritageCard>
-
-          <HeritageCard styles={styles} title="Journey to Excellence">
-            <ul className={styles.legacyList}>
-              <li>
-                <strong>1930s:</strong> Entered automobiles with the BMW 328.
-              </li>
-              <li>
-                <strong>1960s:</strong> New Class sedans set the modern BMW
-                direction.
-              </li>
-              <li>
-                <strong>Motorsport:</strong> Track wins that sharpened road cars.
-              </li>
-              <li>
-                <strong>Future:</strong> Electric and sustainable mobility with
-                the i lineup.
-              </li>
-            </ul>
-          </HeritageCard>
-        </div>
+        <ol className={styles.heritageTimeline} aria-label="BMW milestones">
+          {milestones.map((milestone) => (
+            <li key={milestone.year}>
+              <span>{milestone.year}</span>
+              <p>{milestone.label}</p>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );

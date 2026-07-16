@@ -4,91 +4,22 @@ import HighlightCard from "./HighlightCard";
 const HighlightsSection = ({ styles }) => {
   const highlightItems = [
     {
+      number: "01",
       title: "Performance",
       description:
-        "Confident handling, quick response, and comfort you can feel every day.",
-      icon: (
-        <svg
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M13 2L4 14H11L10 22L20 9H13L13 2Z"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinejoin="round"
-          />
-        </svg>
-      ),
+        "Power that feels immediate, balanced, and completely composed.",
     },
     {
+      number: "02",
       title: "Craftsmanship",
       description:
-        "Premium materials and precise details designed to stay timeless.",
-      icon: (
-        <svg
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22C12 22 19 14.25 19 9C19 5.13 15.87 2 12 2Z"
-            stroke="currentColor"
-            strokeWidth="2"
-          />
-          <path
-            d="M9.5 9.5L11.2 11.2L14.8 7.6"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      ),
+        "Materials, proportion, and detail resolved with quiet confidence.",
     },
     {
+      number: "03",
       title: "Technology",
       description:
-        "Smart assistance and seamless connectivity that elevates each trip.",
-      icon: (
-        <svg
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M4 7H20"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M4 12H14"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M4 17H20"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-          <path
-            d="M18 10V14"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
-      ),
+        "Intelligent systems that stay intuitive, connected, and human.",
     },
   ];
 
@@ -98,9 +29,20 @@ const HighlightsSection = ({ styles }) => {
       role="region"
       aria-labelledby="home-highlights-title"
     >
-      <h2 id="home-highlights-title" className="section-title">
-        Highlights
-      </h2>
+      <div className={styles.highlightsHeader}>
+        <div>
+          <p className={styles.sectionEyebrow}>The BMW character</p>
+          <h2 id="home-highlights-title">Engineered around feeling.</h2>
+        </div>
+        <p>Three principles shape every detail—from the first line drawn to the final mile driven.</p>
+      </div>
+      <div className={styles.characterManifesto}>
+        <img src="/assets/media/background.webp" alt="BMW signature headlights emerging from darkness" loading="lazy" decoding="async" />
+        <div className={styles.characterQuote}>
+          <span>Designed to be felt</span>
+          <p>“True luxury is not added. It is resolved.”</p>
+        </div>
+      </div>
       <div
         className={styles.highlightsGrid}
         role="list"
@@ -110,9 +52,9 @@ const HighlightsSection = ({ styles }) => {
           <HighlightCard
             key={item.title}
             styles={styles}
+            number={item.number}
             title={item.title}
             description={item.description}
-            icon={item.icon}
           />
         ))}
       </div>

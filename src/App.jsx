@@ -9,6 +9,7 @@ import BestSellingModels from "./pages/BestSellingModels";
 import BmwSeriesTable from "./pages/BmwSeriesTable";
 import CarDetails from "./pages/CarDetails";
 import Contact from "./pages/Contact";
+import ExperienceStudio from "./pages/ExperienceStudio";
 import "./styles/shared.css";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/cars/bmw-series-table" element={<BmwSeriesTable />} />
         <Route path="/cars/:carId" element={<CarDetails />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/studio" element={<ExperienceStudio />} />
       </Routes>
       <Footer />
     </>

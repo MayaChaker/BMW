@@ -29,8 +29,11 @@ const ContactForm = ({
       />
 
       <button type="submit" className="btn submit-btn" disabled={isSubmitting}>
-        {submitButtonLabel}
+        <span>{submitButtonLabel}</span>
+        <span aria-hidden="true">→</span>
       </button>
+
+      <p className="form-privacy"><span aria-hidden="true">◆</span> Your details remain private and are shared only with your dedicated advisor.</p>
 
       {renderSubmittedMessage()}
     </form>

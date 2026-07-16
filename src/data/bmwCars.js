@@ -16,7 +16,7 @@ export const BMW_CARS = [
     type: "Sedan",
     collection: "new-models",
     price: "Starting at $86,800",
-    imageSrc: "/assets/cars/7-series/download.jpg",
+    imageSrc: "/assets/cars/official/7-series.webp",
     imageAlt: "BMW 7 Series",
     features: [
       "Redesigned exterior with iconic kidney grille",
@@ -31,7 +31,7 @@ export const BMW_CARS = [
     type: "Sedan",
     collection: "best-selling-models",
     price: "Starting at $41,250",
-    imageSrc: "/assets/cars/3-series/download.jpg",
+    imageSrc: "/assets/cars/official/3-series.webp",
     imageAlt: "BMW 3 Series",
     features: [
       "Iconic sports sedan with performance + luxury",
@@ -45,7 +45,7 @@ export const BMW_CARS = [
     type: "Sedan",
     collection: "best-selling-models",
     price: "Starting at $54,200",
-    imageSrc: "/assets/cars/5-series/images.jpg",
+    imageSrc: "/assets/cars/official/5-series.webp",
     imageAlt: "BMW 5 Series",
     features: [
       "Midsize luxury sedan known for comfort and performance",
@@ -59,7 +59,7 @@ export const BMW_CARS = [
     type: "SUV",
     collection: "best-selling-models",
     price: "Starting at $43,700",
-    imageSrc: "/assets/cars/x3/download.jpg",
+    imageSrc: "/assets/cars/official/x3.webp",
     imageAlt: "BMW X3",
     features: [
       "Compact luxury SUV with balanced utility",
@@ -73,7 +73,7 @@ export const BMW_CARS = [
     type: "SUV",
     collection: "new-models",
     price: "Starting at $59,400",
-    imageSrc: "/assets/cars/x5/front-left-side-47.webp",
+    imageSrc: "/assets/cars/official/x5.webp",
     imageAlt: "BMW X5",
     features: [
       "Premium SUV with dynamic styling",
@@ -88,7 +88,7 @@ export const BMW_CARS = [
     type: "SUV",
     collection: "best-selling-models",
     price: "Starting at $59,400",
-    imageSrc: "/assets/cars/x5/images.jpg",
+    imageSrc: "/assets/cars/official/x5.webp",
     imageAlt: "BMW X5",
     features: [
       "Versatile luxury SUV with spacious interior",
@@ -102,7 +102,7 @@ export const BMW_CARS = [
     type: "SUV",
     collection: "luxury-collection",
     price: "Starting at $92,600",
-    imageSrc: "/assets/cars/x7-m50i/images.jpg",
+    imageSrc: "/assets/cars/official/x7.webp",
     imageAlt: "BMW X7 M50i",
     features: [
       "Powerful 4.4-liter V8 engine with M Sport exhaust",
@@ -116,7 +116,7 @@ export const BMW_CARS = [
     type: "EV",
     collection: "new-models",
     price: "Starting at $55,400",
-    imageSrc: "/assets/cars/i4/download.jpg",
+    imageSrc: "/assets/cars/official/i4.webp",
     imageAlt: "BMW i4",
     features: [
       "All-electric Gran Coupe",
@@ -131,7 +131,7 @@ export const BMW_CARS = [
     type: "EV",
     collection: "luxury-collection",
     price: "Starting at $87,100",
-    imageSrc: "/assets/cars/i4/images.jpg",
+    imageSrc: "/assets/cars/official/ix.webp",
     imageAlt: "BMW iX",
     features: [
       "All-electric SAV with bold design",
@@ -145,7 +145,7 @@ export const BMW_CARS = [
     type: "M / Performance",
     collection: "luxury-collection",
     price: "Starting at $156,700",
-    imageSrc: "/assets/cars/m760i-xdrive/download.jpg",
+    imageSrc: "/assets/cars/official/7-series.webp",
     imageAlt: "BMW M760i xDrive",
     features: [
       "V12 engine for exhilarating performance",
@@ -175,7 +175,7 @@ export const BMW_CARS = [
     type: "Gran Coupe",
     collection: "luxury-collection",
     price: "Starting at $130,000",
-    imageSrc: "/assets/cars/m8-gran-coupe/images.jpg",
+    imageSrc: "/assets/showcase/m8-premium.webp",
     imageAlt: "BMW M8 Gran Coupe",
     features: [
       "4.4-liter V8 engine delivering M-level performance",
@@ -203,7 +203,7 @@ export const BMW_CARS = [
     type: "Coupe",
     collection: "new-models",
     price: "Starting at $48,300",
-    imageSrc: "/assets/cars/4-series-coupe/download.jpg",
+    imageSrc: "/assets/cars/official/4-series.webp",
     imageAlt: "BMW 4 Series Coupe",
     features: [
       "Sport-focused coupe proportions",
@@ -217,7 +217,7 @@ export const BMW_CARS = [
     type: "Convertible",
     collection: "new-models",
     price: "Starting at $54,500",
-    imageSrc: "/assets/cars/z4/download.jpg",
+    imageSrc: "/assets/cars/official/z4.webp",
     imageAlt: "BMW Z4 Roadster",
     features: [
       "Classic roadster styling",
@@ -231,7 +231,7 @@ export const BMW_CARS = [
     type: "M / Performance",
     collection: "best-selling-models",
     price: "Starting at $76,700",
-    imageSrc: "/assets/cars/m3/download.jpg",
+    imageSrc: "/assets/cars/official/m3.webp",
     imageAlt: "BMW M3",
     features: [
       "Track-capable performance sedan",
@@ -245,7 +245,7 @@ export const BMW_CARS = [
     type: "M / Performance",
     collection: "best-selling-models",
     price: "Starting at $119,500",
-    imageSrc: "/assets/cars/m8-gran-coupe/download.jpg",
+    imageSrc: "/assets/cars/official/m5.webp",
     imageAlt: "BMW M5",
     features: [
       "High-output V8 performance",
@@ -259,7 +259,7 @@ export const BMW_CARS = [
     type: "Wagon",
     collection: "new-models",
     price: "Starting at $49,900",
-    imageSrc: "/assets/cars/3-series/images.jpg",
+    imageSrc: "/assets/cars/official/3-series.webp",
     imageAlt: "BMW 3 Series Touring",
     features: [
       "Wagon practicality with sporty dynamics",

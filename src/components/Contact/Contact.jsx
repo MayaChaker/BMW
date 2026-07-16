@@ -19,16 +19,48 @@ const Contact = () => {
   return (
     <main className="container contact-page">
       <header className="contact-hero">
-        <h1 className="contact-title">CONTACT US</h1>
+        <p className="contact-kicker">The concierge desk</p>
+        <h1 className="contact-title">A private conversation.</h1>
         <p className="contact-subtitle">
-          Share your preferences and a BMW concierge will follow up with next
-          steps.
+          Share your preferences. Your dedicated advisor will curate the right
+          model, specification, and next step around you.
         </p>
+        <div className="contact-hero-note">
+          <span>01</span>
+          <p>Confidential consultation<br />No obligation</p>
+        </div>
       </header>
 
       <section className="contact-layout">
+        <aside className="contact-aside" aria-label="Concierge service">
+          <div className="aside-card">
+            <p className="aside-eyebrow">Private client service</p>
+            <h2 className="aside-title">Your next drive, personally curated.</h2>
+            <p className="aside-text">
+              Tell us what matters most—from performance and comfort to colour
+              and timing. We will shape a shortlist around you.
+            </p>
+            <dl className="aside-details">
+              <div className="aside-detail"><dt>Response</dt><dd>Within 24 hours</dd></div>
+              <div className="aside-detail"><dt>Advisor</dt><dd>Dedicated</dd></div>
+              <div className="aside-detail"><dt>Consultation</dt><dd>Complimentary</dd></div>
+            </dl>
+          </div>
+          <div className="trust-grid" aria-label="Service benefits">
+            <span className="trust-item">Private</span>
+            <span className="trust-item">Personal</span>
+            <span className="trust-item">Precise</span>
+          </div>
+        </aside>
         <div className="contact-card">
-          <h2 className="contact-card-title">Contact Us</h2>
+          <div className="contact-card-header">
+            <div>
+              <p className="aside-eyebrow">Start your request</p>
+              <h2 className="contact-card-title">Tell us what moves you.</h2>
+              <p className="contact-card-intro">A few details are all we need to prepare a conversation shaped around your preferences.</p>
+            </div>
+            <span className="form-step" aria-label="Step two of two">02</span>
+          </div>
           <ContactForm
             formData={formData}
             modelOptions={MODEL_OPTIONS}

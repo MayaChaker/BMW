@@ -28,6 +28,7 @@ const getTargetWidth = (filePath) => {
 };
 
 const main = async () => {
+  const enhanceCatalog = process.argv.includes("--enhance-catalog");
   const assetsDir = path.join(process.cwd(), "public", "assets");
   const allFiles = await walk(assetsDir);
 
@@ -42,19 +43,38 @@ const main = async () => {
   for (const inputPath of sourceFiles) {
     const outputPath = inputPath.replace(/\.(png|jpe?g)$/i, ".webp");
 
-    try {
-      await fs.access(outputPath);
-      skipped += 1;
-      continue;
-    } catch {}
+    const isCatalogImage = inputPath
+      .split(path.sep)
+      .join("/")
+      .includes("/public/assets/cars/");
+
+    if (!(enhanceCatalog && isCatalogImage)) {
+      try {
+        await fs.access(outputPath);
+        skipped += 1;
+        continue;
+      } catch {}
+    }
 
     try {
       const width = getTargetWidth(inputPath);
 
-      await sharp(inputPath)
+      let pipeline = sharp(inputPath)
         .rotate()
-        .resize({ width, withoutEnlargement: true })
-        .webp({ quality: 75 })
+        .resize({
+          width,
+          withoutEnlargement: !enhanceCatalog,
+          kernel: sharp.kernel.lanczos3,
+        });
+
+      if (enhanceCatalog && isCatalogImage) {
+        pipeline = pipeline
+          .modulate({ saturation: 1.04 })
+          .sharpen({ sigma: 0.8, m1: 0.7, m2: 1.5 });
+      }
+
+      await pipeline
+        .webp({ quality: enhanceCatalog && isCatalogImage ? 86 : 75 })
         .toFile(outputPath);
 
       converted += 1;

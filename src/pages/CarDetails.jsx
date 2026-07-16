@@ -74,6 +74,9 @@ const CarDetails = () => {
             >
               Get Buying Info
             </Link>
+            <Link className="car-details-back" to={`/studio?model=${car.id}`}>
+              View in 360° Studio
+            </Link>
           </div>
         </div>
       </section>
