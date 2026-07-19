@@ -92,3 +92,4 @@ node scripts/fetch-official-images.mjs
 - Finance calculations are illustrative and exclude taxes, fees, insurance, and final lender terms.
 - The interactive 3D model is loaded from Sketchfab and requires an internet connection.
 - Vehicle specifications and pricing are indicative and may vary by market and model year.
+  
